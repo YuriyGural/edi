@@ -102,7 +102,7 @@ class BusinessDocumentImport(models.AbstractModel):
                     ('state_id', '=', False),
                     ('state_id', '=', state.id)]
         if partner_dict.get('vat'):
-            vat = partner_dict['vat'].replace(' ', '').upper()
+            vat = str(partner_dict['vat']).replace(' ', '').upper()
             # use base_vat_sanitized
             partner = rpo.search(
                 domain + [
